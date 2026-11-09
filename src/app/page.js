@@ -1,69 +1,99 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Heart, Sparkles, Wand2, Play, Stars } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-[#11060b] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,20,50,0.3),rgba(255,255,255,0))] flex flex-col items-center justify-between p-6 relative overflow-hidden">
+      
+      {/* Ambient background glow circles */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-rose-600/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 -right-32 w-96 h-96 bg-amber-600/15 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Navbar */}
+      <nav className="w-full max-w-5xl flex items-center justify-between py-6 z-10">
+        <div className="flex items-center gap-3">
+          <div className="bg-gradient-to-tr from-rose-600 to-pink-500 p-2.5 rounded-2xl shadow-lg shadow-rose-900/40 border border-rose-400/30">
+            <Sparkles className="w-5 h-5 text-amber-200" />
+          </div>
+          <span className="text-2xl font-extrabold font-brand tracking-tight text-white">
+            Wish<span className="text-rose-400">Pulse</span>
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <Link
+          href="/dashboard"
+          className="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-lg shadow-rose-900/50 hover:shadow-rose-700/60 transition-all border border-rose-400/30"
+        >
+          Create Surprise 🎁
+        </Link>
+      </nav>
+
+      {/* Hero Section */}
+      <div className="max-w-3xl text-center flex flex-col items-center my-auto py-12 z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 bg-rose-950/60 backdrop-blur-md text-rose-300 text-xs font-semibold px-5 py-2 rounded-full border border-rose-500/30 shadow-inner mb-6 uppercase tracking-widest"
+        >
+          <Heart className="w-3.5 h-3.5 fill-rose-400 text-rose-400 animate-pulse" />
+          <span>Cinematic Interactive Love & Birthday Journeys</span>
+        </motion.div>
+
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-brand text-white leading-[1.1]"
+        >
+          Craft Unforgettable <br />
+          <span className="bg-gradient-to-r from-rose-300 via-pink-400 to-amber-300 bg-clip-text text-transparent text-glow-rose">
+            Digital Masterpieces
+          </span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-rose-200/70 text-base md:text-lg mt-6 max-w-xl font-light leading-relaxed"
+        >
+          Build immersive multi-stage web gifts complete with evasive refusal gates, interactive balloon grids, microphone candle blowing, and custom romantic video showcases.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full sm:w-auto"
+        >
+          <Link
+            href="/dashboard"
+            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-bold text-sm px-8 py-4 rounded-2xl shadow-xl shadow-rose-950/60 hover:shadow-2xl hover:scale-105 transition-all border border-rose-400/40"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <Wand2 className="w-4 h-4 text-amber-200" />
+            <span>Create Free Surprise</span>
+          </Link>
+
+          <Link
+            href="/w/demo"
+            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 font-semibold text-sm px-8 py-4 rounded-2xl border border-rose-500/20 shadow-lg backdrop-blur-md transition-all hover:border-rose-400/40"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <Play className="w-4 h-4 text-rose-400 fill-rose-400" />
+            <span>Try Live Demo</span>
+          </Link>
+        </motion.div>
+      </div>
+
+      {/* Footer */}
+      <footer className="text-xs text-rose-300/40 font-medium py-4 z-10 flex items-center gap-1.5">
+        <Stars className="w-3.5 h-3.5 text-amber-300/60" />
+        <span>Powered by WishPulse ✨ Handcrafted for special celebrations.</span>
+      </footer>
+
     </div>
   );
 }
