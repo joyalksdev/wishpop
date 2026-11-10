@@ -1,4 +1,3 @@
-// src/app/w/[id]/page.js
 'use client';
 
 import { useState, useCallback, use } from 'react';
@@ -9,8 +8,8 @@ import ProgressTracker from '@/components/ProgressTracker';
 import EnvelopeUnwrap from '@/components/EnvelopeUnwrap';
 import CandleBlow from '@/components/CandleBlow';
 import MemorySlider from '@/components/MemorySlider';
+import ProposalQuestion from '@/components/ProposalQuestion';
 import LoveLetter from '@/components/LoveLetter';
-import VideoMessage from '@/components/VideoMessage';
 import ReplayFooter from '@/components/ReplayFooter';
 
 export default function SurprisePage({ params }) {
@@ -60,10 +59,10 @@ export default function SurprisePage({ params }) {
         return <CandleBlow {...commonProps} />;
       case 'memoryslider':
         return <MemorySlider {...commonProps} />;
+      case 'question':
+        return <ProposalQuestion {...commonProps} />;
       case 'loveletter':
         return <LoveLetter {...commonProps} />;
-      case 'video':
-        return <VideoMessage {...commonProps} />;
       default:
         return <EnvelopeUnwrap {...commonProps} />;
     }
@@ -79,10 +78,8 @@ export default function SurprisePage({ params }) {
           coverImage={currentMusic.cover}
         />
       )}
-
-      <ProgressTracker currentStep={currentStepIndex} totalSteps={steps.length} />
-
-      <div className="w-full max-w-xl mx-auto min-h-screen flex items-center justify-center p-4 relative z-10">
+      
+      <div className="w-full max-w-xl mx-auto min-h-screen flex items-center justify-center p-4 relative z-10 transform-gpu">
         {renderStepContent()}
       </div>
     </MagicBackground>

@@ -1,3 +1,4 @@
+// src/components/EnvelopeUnwrap.jsx
 'use client';
 
 import { useState } from 'react';
@@ -20,11 +21,12 @@ export default function EnvelopeUnwrap({ recipientName, senderName, onNext }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      initial={{ opacity: 0, scale: 0.95, y: 15 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      className="relative bg-[#250d17]/85 backdrop-blur-3xl p-8 md:p-12 rounded-[2.5rem] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9)] border border-rose-500/30 max-w-md w-full text-center"
+      transition={{ duration: 0.4 }}
+      className="relative bg-[#250d17]/85 backdrop-blur-xl p-6 md:p-10 rounded-[2.5rem] shadow-2xl border border-rose-500/30 max-w-md w-full text-center transform-gpu"
     >
-      <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-tr from-rose-600 to-pink-500 p-4 rounded-full shadow-2xl shadow-rose-950/80 border border-rose-400/40">
+      <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-tr from-rose-600 to-pink-500 p-4 rounded-full shadow-2xl border border-rose-400/40">
         <Heart className="w-6 h-6 text-amber-100 fill-amber-100 animate-pulse" />
       </div>
 
@@ -46,24 +48,23 @@ export default function EnvelopeUnwrap({ recipientName, senderName, onNext }) {
 
       {!isOpen ? (
         <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
           onClick={handleOpen}
-          className="w-48 h-36 mx-auto bg-gradient-to-tr from-rose-700 via-rose-600 to-pink-500 rounded-2xl shadow-2xl shadow-rose-950/90 border border-rose-300/40 flex flex-col items-center justify-center cursor-pointer relative group my-8"
+          className="w-44 h-32 mx-auto bg-gradient-to-tr from-rose-700 via-rose-600 to-pink-500 rounded-2xl shadow-xl border border-rose-300/40 flex flex-col items-center justify-center cursor-pointer relative group my-6 transform-gpu"
         >
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-rose-600 to-rose-700 rounded-t-2xl border-b border-rose-400/30 clip-triangle" />
-          <div className="w-12 h-12 rounded-full bg-amber-400 border-2 border-amber-200 shadow-xl flex items-center justify-center z-10 group-hover:scale-110 transition-transform">
+          <div className="w-12 h-12 rounded-full bg-amber-400 border-2 border-amber-200 shadow-xl flex items-center justify-center z-10">
             <MailOpen className="w-6 h-6 text-rose-950" />
           </div>
-          <span className="text-[11px] font-bold tracking-widest text-amber-200 uppercase mt-2 z-10 text-glow-gold">
+          <span className="text-[11px] font-bold tracking-widest text-amber-200 uppercase mt-2 z-10">
             Tap to Open
           </span>
         </motion.div>
       ) : (
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-rose-950/50 border border-rose-500/30 rounded-2xl p-5 my-6 text-center backdrop-blur-md shadow-inner"
+          className="bg-rose-950/50 border border-rose-500/30 rounded-2xl p-4 my-6 text-center shadow-inner"
         >
           <p className="text-rose-100 font-handwriting text-xl">
             "Your magical journey awaits, {recipientName}..."
@@ -75,10 +76,10 @@ export default function EnvelopeUnwrap({ recipientName, senderName, onNext }) {
         <motion.button
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={onNext}
-          className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-bold py-4 rounded-2xl shadow-xl shadow-rose-950/80 border border-rose-400/40 cursor-pointer text-sm"
+          className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-bold py-3.5 rounded-2xl shadow-xl border border-rose-400/40 cursor-pointer text-sm"
         >
           <span>Start Experience</span>
           <ArrowRight className="w-4 h-4 text-amber-200" />

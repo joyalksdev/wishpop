@@ -1,13 +1,9 @@
 // src/data/surpriseConfig.js
 export const surpriseConfig = {
-  // Meta
   recipientName: "Aleena",
   senderName: "Gheevas",
+  passcode: null,
 
-  // Optional PIN (if provided, shows PIN gate; else tap-to-open)
-  passcode: null, // "1234" or null
-
-  // Music per step (optional - falls back to default)
   music: {
     unwrap: {
       audioUrl: "/birthday.mp3",
@@ -20,8 +16,13 @@ export const surpriseConfig = {
       cover: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=300&auto=format&fit=crop",
     },
     reminisce: {
-      audioUrl: "/arz-kiya-hai.mp3",
-      title: "Arz Kiya Hai",
+      audioUrl: "/they_call_this_love.mp3",
+      title: "They Call This Love",
+      cover: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300&auto=format&fit=crop",
+    },
+    proposal: {
+      audioUrl: "/they_call_this_love.mp3",
+      title: "They Call This Love",
       cover: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300&auto=format&fit=crop",
     },
     treasure: {
@@ -31,7 +32,6 @@ export const surpriseConfig = {
     },
   },
 
-  // Steps array - defines the flow
   steps: [
     { id: "unwrap", type: "envelope" },
     {
@@ -62,26 +62,33 @@ export const surpriseConfig = {
         slides: [
           {
             type: "photo",
-            url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop",
-            caption: "Our first trip together ✨",
+            url: "https://res.cloudinary.com/egi20g3j/image/upload/v1794293237/WhatsApp_Image_2026-11-10_at_10.49.59_AM_muhjd0.jpg",
+          },
+          { 
+            type: "photo",
+            url: "https://res.cloudinary.com/egi20g3j/image/upload/v1794293236/WhatsApp_Image_2026-11-10_at_10.49.58_AM_uzgx2g.jpg",
           },
           {
             type: "photo",
-            url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&auto=format&fit=crop",
-            caption: "Coffee dates & endless giggles ☕",
-          },
-          {
-            type: "video",
-            url: "", // Add video URL here when available
-            caption: "Surprise message from Alex 🎥",
-            poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop",
-          },
-          {
+            url: "https://res.cloudinary.com/egi20g3j/image/upload/v1794293236/WhatsApp_Image_2026-11-10_at_10.49.58_AM_1_cfagga.jpg",
+          },{
             type: "photo",
-            url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop",
-            caption: "Always matching energy! 🌟",
+            url: "https://res.cloudinary.com/egi20g3j/image/upload/v1794293236/WhatsApp_Image_2026-11-10_at_10.49.59_AM_1_temkr1.jpg",
+          },{
+            type: "photo",
+            url: "https://res.cloudinary.com/egi20g3j/image/upload/v1794293236/WhatsApp_Image_2026-11-10_at_10.49.58_AM_2_fxxnpt.jpg",
+          },{
+            type: "photo",
+            url: "https://res.cloudinary.com/egi20g3j/image/upload/v1794293236/WhatsApp_Image_2026-11-10_at_10.49.57_AM_pgo7rx.jpg",
           },
         ],
+      },
+    },
+    {
+      id: "proposal",
+      type: "question",
+      config: {
+        questionText: "Will you be my baby girl until you turn 100? 🥰",
       },
     },
     {
@@ -97,9 +104,8 @@ Here's to celebrating you today and creating countless more amazing moments toge
     },
   ],
 
-  // Share config
   share: {
-    title: "My WishPulse Surprise for Ria 💖",
+    title: "My WishPulse Surprise for Aleena 💖",
     description: "Check out this interactive birthday experience!",
     hashtags: ["WishPulse", "BirthdaySurprise"],
   },

@@ -38,11 +38,12 @@ export default function ReplayFooter({ senderName, recipientName, onReplay, surp
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      initial={{ opacity: 0, scale: 0.95, y: 15 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      className="relative bg-[#250d17]/85 backdrop-blur-3xl p-8 md:p-10 rounded-[2.5rem] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9)] border border-rose-500/30 max-w-md w-full text-center"
+      transition={{ duration: 0.4 }}
+      className="relative bg-[#250d17]/85 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-rose-500/30 max-w-md w-full text-center transform-gpu"
     >
-      <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-tr from-rose-600 to-pink-500 p-4 rounded-full shadow-2xl shadow-rose-950/80 border border-rose-400/40">
+      <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-tr from-rose-600 to-pink-500 p-4 rounded-full shadow-2xl border border-rose-400/40">
         <Heart className="w-6 h-6 text-amber-100 fill-amber-100 animate-pulse" />
       </div>
 
@@ -73,7 +74,7 @@ export default function ReplayFooter({ senderName, recipientName, onReplay, surp
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={handleReplayClick}
-          className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl shadow-rose-950/80 border border-rose-400/40 cursor-pointer text-sm"
+          className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-bold px-6 py-4 rounded-2xl shadow-xl border border-rose-400/40 cursor-pointer text-sm"
         >
           <RefreshCw className="w-4 h-4 text-amber-200" />
           <span>Replay Experience</span>
@@ -85,7 +86,7 @@ export default function ReplayFooter({ senderName, recipientName, onReplay, surp
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleWhatsApp}
-            className="flex items-center justify-center gap-2 bg-emerald-950/50 hover:bg-emerald-900/60 text-emerald-300 font-semibold py-3 rounded-xl border border-emerald-500/30 transition-all cursor-pointer text-xs"
+            className="flex items-center justify-center gap-2 bg-emerald-950/50 hover:bg-emerald-900/60 text-emerald-300 font-semibold py-3 rounded-xl border border-emerald-500/35 transition-all cursor-pointer text-xs"
           >
             <MessageSquare className="w-4 h-4" />
             <span>WhatsApp</span>
@@ -95,7 +96,7 @@ export default function ReplayFooter({ senderName, recipientName, onReplay, surp
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleCopyLink}
-            className="flex items-center justify-center gap-2 bg-rose-950/50 hover:bg-rose-900/60 text-rose-200 font-semibold py-3 rounded-xl border border-rose-500/30 transition-all cursor-pointer text-xs"
+            className="flex items-center justify-center gap-2 bg-rose-950/50 hover:bg-rose-900/60 text-rose-200 font-semibold py-3 rounded-xl border border-rose-500/35 transition-all cursor-pointer text-xs"
           >
             {copied ? <Check className="w-4 h-4 text-amber-300" /> : <Copy className="w-4 h-4" />}
             <span>{copied ? "Copied!" : "Copy Link"}</span>

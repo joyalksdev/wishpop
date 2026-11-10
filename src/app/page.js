@@ -6,11 +6,11 @@ import { Heart, Sparkles, Wand2, Play, Stars } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#11060b] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,20,50,0.3),rgba(255,255,255,0))] flex flex-col items-center justify-between p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-[#11060b] relative overflow-hidden flex flex-col items-center justify-between p-6 transform-gpu">
       
-      {/* Ambient background glow circles */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-rose-600/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 -right-32 w-96 h-96 bg-amber-600/15 rounded-full blur-[120px] pointer-events-none" />
+      {/* Optimized Ambient Glow */}
+      <div className="absolute top-1/4 -left-32 w-80 h-80 bg-rose-600/15 rounded-full blur-[90px] pointer-events-none" />
+      <div className="absolute bottom-10 -right-32 w-80 h-80 bg-amber-600/10 rounded-full blur-[90px] pointer-events-none" />
 
       {/* Navbar */}
       <nav className="w-full max-w-5xl flex items-center justify-between py-6 z-10">
@@ -25,7 +25,7 @@ export default function Home() {
 
         <Link
           href="/dashboard"
-          className="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-lg shadow-rose-900/50 hover:shadow-rose-700/60 transition-all border border-rose-400/30"
+          className="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-lg shadow-rose-900/50 transition-all border border-rose-400/30 cursor-pointer"
         >
           Create Surprise 🎁
         </Link>
@@ -34,16 +34,16 @@ export default function Home() {
       {/* Hero Section */}
       <div className="max-w-3xl text-center flex flex-col items-center my-auto py-12 z-10">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 bg-rose-950/60 backdrop-blur-md text-rose-300 text-xs font-semibold px-5 py-2 rounded-full border border-rose-500/30 shadow-inner mb-6 uppercase tracking-widest"
+          className="inline-flex items-center gap-2 bg-rose-950/70 text-rose-300 text-xs font-semibold px-5 py-2 rounded-full border border-rose-500/30 shadow-inner mb-6 uppercase tracking-widest"
         >
           <Heart className="w-3.5 h-3.5 fill-rose-400 text-rose-400 animate-pulse" />
           <span>Cinematic Interactive Love & Birthday Journeys</span>
         </motion.div>
 
         <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="text-4xl sm:text-6xl md:text-7xl font-extrabold font-brand text-white leading-[1.1]"
@@ -55,24 +55,24 @@ export default function Home() {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="text-rose-200/70 text-base md:text-lg mt-6 max-w-xl font-light leading-relaxed"
         >
-          Build immersive multi-stage web gifts complete with evasive refusal gates, interactive balloon grids, microphone candle blowing, and custom romantic video showcases.
+          Build immersive multi-stage web gifts complete with evasive refusal gates, interactive photo lanes, microphone candle blowing, and custom romantic question flows.
         </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full sm:w-auto"
         >
           <Link
             href="/dashboard"
-            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-bold text-sm px-8 py-4 rounded-2xl shadow-xl shadow-rose-950/60 hover:shadow-2xl hover:scale-105 transition-all border border-rose-400/40"
+            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-bold text-sm px-8 py-4 rounded-2xl shadow-xl shadow-rose-950/60 transition-all border border-rose-400/40 cursor-pointer"
           >
             <Wand2 className="w-4 h-4 text-amber-200" />
             <span>Create Free Surprise</span>
@@ -80,7 +80,7 @@ export default function Home() {
 
           <Link
             href="/w/demo"
-            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 font-semibold text-sm px-8 py-4 rounded-2xl border border-rose-500/20 shadow-lg backdrop-blur-md transition-all hover:border-rose-400/40"
+            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-rose-950/40 hover:bg-rose-900/60 text-rose-200 font-semibold text-sm px-8 py-4 rounded-2xl border border-rose-500/20 shadow-lg transition-all cursor-pointer"
           >
             <Play className="w-4 h-4 text-rose-400 fill-rose-400" />
             <span>Try Live Demo</span>

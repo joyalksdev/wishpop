@@ -20,31 +20,34 @@
 .font-brand { font-family: var(--font-brand); }
 .font-handwriting { font-family: var(--font-handwriting); }
 
-/* Custom Luxury Glassmorphism */
+/* Optimized GPU Glassmorphism for Mobile Safari */
 .glass-panel {
-  background: rgba(45, 18, 30, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(244, 63, 94, 0.2);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(244, 63, 94, 0.1);
+  background: rgba(45, 18, 30, 0.75);
+  backdrop-blur: 16px;
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+  transform: translateZ(0);
 }
 
 .glass-card {
-  background: rgba(30, 12, 20, 0.5);
-  backdrop-filter: blur(12px);
+  background: rgba(30, 12, 20, 0.6);
+  backdrop-blur: 10px;
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 182, 193, 0.15);
+  transform: translateZ(0);
 }
 
-/* Glowing text & shadows */
+/* Glowing effects */
 .text-glow-rose {
-  text-shadow: 0 0 25px rgba(244, 63, 94, 0.6);
+  text-shadow: 0 0 20px rgba(244, 63, 94, 0.5);
 }
 
 .text-glow-gold {
-  text-shadow: 0 0 25px rgba(251, 191, 36, 0.6);
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #170910; }
 ::-webkit-scrollbar-thumb { background: rgba(244, 63, 94, 0.4); border-radius: 9999px; }

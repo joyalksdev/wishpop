@@ -1,3 +1,4 @@
+// src/components/LoveLetter.jsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -19,14 +20,15 @@ export default function LoveLetter({ senderName, recipientName, config, onNext }
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      initial={{ opacity: 0, scale: 0.95, y: 15 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      className="relative bg-[#250d17]/85 backdrop-blur-3xl p-6 md:p-10 rounded-[2.5rem] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9)] border border-amber-500/30 max-w-md w-full text-center"
+      transition={{ duration: 0.4 }}
+      className="relative bg-[#250d17]/85 backdrop-blur-xl p-6 md:p-10 rounded-[2.5rem] shadow-2xl border border-amber-500/30 max-w-md w-full text-center transform-gpu"
     >
-      <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-tr from-amber-600 to-yellow-500 p-4 rounded-full shadow-2xl shadow-amber-950/80 border border-amber-300/40">
+      <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-tr from-amber-600 to-yellow-500 p-4 rounded-full shadow-2xl border border-amber-300/40">
         <Heart className="w-6 h-6 text-amber-100 fill-amber-100 animate-pulse" />
       </div>
-
+      
       <div className="inline-flex items-center gap-1.5 bg-amber-950/80 text-amber-300 text-xs font-semibold px-4 py-1.5 rounded-full border border-amber-500/30 shadow-inner mt-3 uppercase tracking-widest">
         <Sparkles className="w-3.5 h-3.5 text-amber-300" />
         <span>Heartfelt Treasure</span>
@@ -36,8 +38,7 @@ export default function LoveLetter({ senderName, recipientName, config, onNext }
         A Note For You 💌
       </h2>
 
-      {/* Parchment Box */}
-      <div className="bg-amber-950/30 border border-amber-500/30 rounded-2xl p-6 my-6 text-left backdrop-blur-md shadow-inner">
+      <div className="bg-amber-950/30 border border-amber-500/30 rounded-2xl p-6 my-6 text-left shadow-inner">
         <p className="text-amber-100 font-handwriting text-xl md:text-2xl leading-relaxed whitespace-pre-line">
           {letterText}
         </p>
@@ -47,10 +48,10 @@ export default function LoveLetter({ senderName, recipientName, config, onNext }
       </div>
 
       <motion.button
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
         onClick={handleFinish}
-        className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-amber-950 font-bold py-4 rounded-2xl shadow-xl shadow-amber-950/80 border border-amber-200/40 cursor-pointer text-sm"
+        className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-amber-950 font-bold py-4 rounded-2xl shadow-xl border border-amber-200/40 cursor-pointer text-sm"
       >
         <span>Complete Surprise Journey</span>
         <ArrowRight className="w-4 h-4" />

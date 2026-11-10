@@ -65,9 +65,10 @@ export default function CandleBlow({ recipientName, onNext }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      initial={{ opacity: 0, scale: 0.95, y: 15 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      className="relative bg-[#250d17]/85 backdrop-blur-3xl p-6 md:p-10 rounded-[2.5rem] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.9)] border border-rose-500/30 max-w-md w-full text-center overflow-hidden"
+      transition={{ duration: 0.4 }}
+      className="relative bg-[#250d17]/85 backdrop-blur-xl p-6 md:p-10 rounded-[2.5rem] shadow-2xl border border-rose-500/30 max-w-md w-full text-center transform-gpu"
     >
       <div className="inline-flex items-center gap-1.5 bg-rose-950/80 text-rose-300 text-xs font-semibold px-4 py-1.5 rounded-full border border-rose-500/30 shadow-inner uppercase tracking-widest mb-3">
         <Sparkles className="w-3.5 h-3.5 text-amber-300" />
@@ -81,7 +82,6 @@ export default function CandleBlow({ recipientName, onNext }) {
         {isLit ? "Blow into your microphone or tap the flame to extinguish it." : "Your birthday wish has been locked in!"}
       </p>
 
-      {/* Candle Graphic */}
       <div className="relative my-6 z-10 flex flex-col items-center">
         <div className="mb-[-6px] z-20">
           <div onClick={extinguish} className="flex flex-col items-center cursor-pointer group">
@@ -89,28 +89,27 @@ export default function CandleBlow({ recipientName, onNext }) {
               {isLit ? (
                 <motion.div
                   initial={{ scale: 0 }}
-                  animate={{ scale: [1, 1.25, 1], rotate: [-5, 5, -5] }}
-                  exit={{ opacity: 0, y: -30, scale: 0 }}
-                  transition={{ repeat: Infinity, duration: 0.5 }}
-                  className="w-7 h-10 bg-gradient-to-t from-amber-500 via-yellow-300 to-white rounded-full shadow-[0_0_30px_#f59e0b] mb-1 flex items-center justify-center"
+                  animate={{ scale: [1, 1.2, 1], rotate: [-3, 3, -3] }}
+                  exit={{ opacity: 0, y: -20, scale: 0 }}
+                  transition={{ repeat: Infinity, duration: 0.6 }}
+                  className="w-7 h-10 bg-gradient-to-t from-amber-500 via-yellow-300 to-white rounded-full shadow-[0_0_20px_#f59e0b] mb-1 flex items-center justify-center"
                 >
-                  <Flame className="w-4 h-4 text-orange-600 fill-orange-500 animate-pulse" />
+                  <Flame className="w-4 h-4 text-orange-600 fill-orange-500" />
                 </motion.div>
               ) : (
-                <div className="w-3 h-6 bg-rose-950 rounded-full blur-[1px] mb-1 animate-pulse" />
+                <div className="w-3 h-6 bg-rose-950 rounded-full mb-1" />
               )}
             </AnimatePresence>
-            <div className="w-3.5 h-16 bg-gradient-to-b from-rose-300 to-rose-500 rounded-t-sm shadow-md" />
+            <div className="w-3.5 h-14 bg-gradient-to-b from-rose-300 to-rose-500 rounded-t-sm shadow-md" />
           </div>
         </div>
 
-        <div className="w-48 h-16 bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 rounded-t-3xl border-b-4 border-rose-400 shadow-xl flex items-center justify-center z-10">
-          <span className="text-xs font-bold tracking-widest text-amber-200 uppercase font-brand text-glow-gold">
+        <div className="w-44 h-14 bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 rounded-t-3xl border-b-4 border-rose-400 shadow-xl flex items-center justify-center z-10">
+          <span className="text-xs font-bold tracking-widest text-amber-200 uppercase font-brand">
             {recipientName}
           </span>
         </div>
-        <div className="w-60 h-16 bg-gradient-to-r from-rose-700 to-pink-600 rounded-t-2xl border-b-4 border-rose-500 shadow-xl" />
-        <div className="w-72 h-3 bg-rose-950/80 rounded-full shadow-2xl mt-[-2px] border border-rose-500/20" />
+        <div className="w-56 h-14 bg-gradient-to-r from-rose-700 to-pink-600 rounded-t-2xl border-b-4 border-rose-500 shadow-xl" />
       </div>
 
       {isLit && (
@@ -121,12 +120,12 @@ export default function CandleBlow({ recipientName, onNext }) {
       )}
 
       {!isLit && (
-        <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} className="mt-4">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-4">
           <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={onNext}
-            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-bold py-3.5 rounded-2xl shadow-xl shadow-rose-950/80 border border-rose-400/40 cursor-pointer text-sm"
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 text-white font-bold py-3.5 rounded-2xl shadow-xl border border-rose-400/40 cursor-pointer text-sm"
           >
             <span>Continue Journey</span>
             <ArrowRight className="w-4 h-4 text-amber-200" />
